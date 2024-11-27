@@ -25,7 +25,10 @@ std::string Contact::get_darkest_secret()
     return darkest_secret;
 }
 
-//setters
+std::string Contact::get_nickname()
+{
+    return nickname;
+}
 
 void Contact::set_index(int index)
 {
@@ -48,4 +51,7 @@ void Contact::set_darket_secret(std::string darkest_secret)
     this->darkest_secret = darkest_secret;
 }
 
-
+void Contact::set_nickname(std::string nickname)
+{
+    this->nickname = nickname;
+}

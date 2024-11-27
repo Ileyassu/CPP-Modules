@@ -3,18 +3,23 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
+#include <algorithm>
+#include <cctype>    
 class Contact
 {
     private :
         int index;
         std::string first_name;
         std::string last_name;
+        std::string nickname;
         std::string phone_number;
         std::string darkest_secret;
     public :
         int get_index();
         std::string get_first_name();
         std::string get_last_name();
+        std::string get_nickname();
         std::string get_phone_number();
         std::string get_darkest_secret();
 
@@ -23,6 +28,7 @@ class Contact
         void set_last_name(std::string last_name);
         void set_phone_number(std::string phone_number);
         void set_darket_secret(std::string darkest_secret);
+        void set_nickname(std::string nickname);
 };
 
 class Phonebook
@@ -30,13 +36,15 @@ class Phonebook
     private :
         Contact contacts[9];
     public :
-        void add_contact(int index);
+        void init_contacts();
+        int add_contact(int index);
         void list_contacts(int index);
         void contact_picker(int counter);
         std::string ten_character_filter(std::string str);
-        // void search_contact(int index);
-        // void delete_contact(int index);
-        // void exit_phonebook();
+        void delete_contacts(int index);
 
 };
+void failed_cin();
+bool is_alphanumeric(const std::string& str);
+
 #endif

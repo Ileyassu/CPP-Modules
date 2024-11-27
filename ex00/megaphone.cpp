@@ -1,43 +1,22 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <cctype>
 
-// int main(int ac, char **av)
-// {
-//     int i;
-
-//     i = 1;
-//     while(av[i])
-//     {
-//         std :: string str = av[i];
-//         std :: transform(str.begin(), str.end(), str.begin(), ::toupper);
-//         std :: cout << str;
-//         if(av[i + 1])
-//             std :: cout << " ";
-//         i++;
-//     }
-//     std :: cout << "\n";
-// }
-
-int main (int ac, char **av)
+int main(int ac, char **av)
 {
-    int i = 1;
-    int j = 0;
-    char c;
-
-    while (av[i])
+    if (ac > 1)
     {
-        j = 0;
-        while(av[i][j])
+        for (int i = 1; i < ac; i++)
         {
-            c = av[i][j];
-            c = std::toupper(c);
-            std :: cout << c;
-            j++;
+            if (i > 1)
+                std::cout << " ";
+            std::string tmp = av[i];
+            for (int j = 0; j < tmp.length(); j++)
+            {
+                char c = std::toupper(tmp[j]);
+                std::cout << c;
+            }
         }
-        i++;
     }
-    std :: cout << "\n";
-    
+    else
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }

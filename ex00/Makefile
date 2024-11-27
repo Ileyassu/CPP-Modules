@@ -1,28 +1,26 @@
-CC = gcc
-
-FLAGS = -Wall -Wextra -Werror -std=c++98
-
 SRC = megaphone.cpp
-
-NAME = megaphone
 
 OBJ = $(SRC:.cpp=.o)
 
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+NAME = megaphone
+
 all : $(NAME)
 
-$(NAME): $(OBJ)
-	g++ $(CFLAGS) $(OBJ) -o $(NAME)
-
-fclean : clean
-		@echo full cleaning of $(NAME) ...
-		@$(RM) -f $(NAME)
-		@sleep 0.5
-		@echo $(NAME) cleaned
+$(NAME) : $(OBJ)
+	g++ $(OBJ) $(CFLAGS) -o $(NAME)
 
 clean :
-		@echo cleaning $(NAME) ...
-		@$(RM) -f $(OBJ)
-		@sleep 0.5
-		@echo $(NAME) cleaned.
+	@echo cleaning $(NAME) ...
+	$(RM) $(OBJ)
+	@sleep 0.5
+	@echo $(NAME) cleaned.
+
+fclean : clean
+	@echo full cleaning of $(NAME) ...
+	@$(RM) -f $(NAME)
+	@sleep 0.5
+	@echo $(NAME) cleaned.
 
 re : fclean all
